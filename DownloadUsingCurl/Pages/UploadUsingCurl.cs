@@ -46,25 +46,6 @@ namespace DownloadUsingCurl.Pages
 
         private async void btnUpload_Click(object sender, EventArgs e)
         {
-            //var command = $"curl.exe --upload-file {SelectedFilePath} \"{PresignedURL}\"";
-            //ProcessStartInfo startInfo = new ProcessStartInfo
-            //{
-            //    FileName = @"C:\windows\system32\windowspowershell\v1.0\powershell.exe",
-            //    Arguments = $"-Command \"{ command }\"",
-            //    RedirectStandardOutput = true,
-            //    RedirectStandardError = true,
-            //    UseShellExecute = false,
-            //    CreateNoWindow = false
-            //};
-            //Process process = new Process
-            //{
-            //    StartInfo = startInfo
-            //};
-            //process.Start();
-
-            //this.LastExecutionOutput = process.StandardOutput.ReadToEnd();
-            //this.LastExecutionError = process.StandardError.ReadToEnd();
-
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Put, this.PresignedURL);
             request.Content = new ByteArrayContent(File.ReadAllBytes(this.SelectedFilePath));
 
