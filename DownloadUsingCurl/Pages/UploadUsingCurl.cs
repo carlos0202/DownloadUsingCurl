@@ -19,7 +19,6 @@ namespace DownloadUsingCurl.Pages
     {
         private string SelectedFilePath;
         private string PresignedURL;
-        private string LastExecutionError;
         private string LastExecutionOutput;
         private HttpClient _client;
 
@@ -52,7 +51,8 @@ namespace DownloadUsingCurl.Pages
             HttpResponseMessage response = await this._client.SendAsync(request);
             //response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
-            this.LastExecutionOutput = responseBody;
+            this.LastExecutionOutput = NormalizePutOutput(responseBody);
+            CleanAfterExecution();
         }
 
         private void BtnProcessData_Click(object sender, EventArgs e)
@@ -72,9 +72,33 @@ namespace DownloadUsingCurl.Pages
             MessageBox.Show(this.LastExecutionOutput);
         }
 
-        private void btnViewLastExecutionError_Click(object sender, EventArgs e)
+        private void CleanAfterExecution()
         {
-            MessageBox.Show(this.LastExecutionError);
+            this.btnUpload.Enabled = false;
+            this.PresignedURL = null;
+            this.SelectedFilePath = null;
+            this.txtSelectedFile.Text = null;
+            this.txtCreateMCJson.Text = null;
+        }
+
+        private string NormalizePutOutput(string output)
+        {
+            if(string.IsNullOrWhiteSpace(output)) 
+            {
+                return "Everything is good. You're killing it!!!";
+            }
+
+            return $"Execution output: {output}";
+        }
+
+        private void btnPasteFromClipboard_Click(object sender, EventArgs e)
+        {
+            this.txtCreateMCJson.Text = Clipboard.GetText();
+        }
+
+        private void btnClearInputData_Click(object sender, EventArgs e)
+        {
+            CleanAfterExecution();
         }
     }
 }

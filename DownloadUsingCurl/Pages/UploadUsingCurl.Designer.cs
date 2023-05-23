@@ -36,8 +36,9 @@
             this.txtCreateMCJson = new System.Windows.Forms.TextBox();
             this.btnUpload = new System.Windows.Forms.Button();
             this.BtnProcessData = new System.Windows.Forms.Button();
-            this.btnViewLastExecutionError = new System.Windows.Forms.Button();
             this.btnViewExecOutput = new System.Windows.Forms.Button();
+            this.btnPasteFromClipboard = new System.Windows.Forms.Button();
+            this.btnClearInputData = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtSelectedFile
@@ -53,7 +54,7 @@
             // 
             this.BtnSelectUploadFile.Location = new System.Drawing.Point(722, 69);
             this.BtnSelectUploadFile.Name = "BtnSelectUploadFile";
-            this.BtnSelectUploadFile.Size = new System.Drawing.Size(75, 47);
+            this.BtnSelectUploadFile.Size = new System.Drawing.Size(89, 47);
             this.BtnSelectUploadFile.TabIndex = 1;
             this.BtnSelectUploadFile.Text = "Select";
             this.BtnSelectUploadFile.UseVisualStyleBackColor = true;
@@ -64,9 +65,9 @@
             this.lblSelectUploadFile.AutoSize = true;
             this.lblSelectUploadFile.Location = new System.Drawing.Point(64, 36);
             this.lblSelectUploadFile.Name = "lblSelectUploadFile";
-            this.lblSelectUploadFile.Size = new System.Drawing.Size(513, 20);
+            this.lblSelectUploadFile.Size = new System.Drawing.Size(556, 20);
             this.lblSelectUploadFile.TabIndex = 2;
-            this.lblSelectUploadFile.Text = "Please select the file that will be uploaded to AWS S3 Bucket using Curl";
+            this.lblSelectUploadFile.Text = "Please select the file that will be uploaded to AWS S3 Bucket using HttpClient";
             this.lblSelectUploadFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ofdUploadFile
@@ -107,22 +108,11 @@
             // 
             this.BtnProcessData.Location = new System.Drawing.Point(722, 400);
             this.BtnProcessData.Name = "BtnProcessData";
-            this.BtnProcessData.Size = new System.Drawing.Size(75, 53);
+            this.BtnProcessData.Size = new System.Drawing.Size(89, 53);
             this.BtnProcessData.TabIndex = 6;
             this.BtnProcessData.Text = "Parse";
             this.BtnProcessData.UseVisualStyleBackColor = true;
             this.BtnProcessData.Click += new System.EventHandler(this.BtnProcessData_Click);
-            // 
-            // btnViewLastExecutionError
-            // 
-            this.btnViewLastExecutionError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.btnViewLastExecutionError.Location = new System.Drawing.Point(363, 490);
-            this.btnViewLastExecutionError.Name = "btnViewLastExecutionError";
-            this.btnViewLastExecutionError.Size = new System.Drawing.Size(240, 51);
-            this.btnViewLastExecutionError.TabIndex = 7;
-            this.btnViewLastExecutionError.Text = "View Last Execution Error";
-            this.btnViewLastExecutionError.UseVisualStyleBackColor = true;
-            this.btnViewLastExecutionError.Click += new System.EventHandler(this.btnViewLastExecutionError_Click);
             // 
             // btnViewExecOutput
             // 
@@ -135,13 +125,35 @@
             this.btnViewExecOutput.UseVisualStyleBackColor = true;
             this.btnViewExecOutput.Click += new System.EventHandler(this.btnViewExecOutput_Click);
             // 
+            // btnPasteFromClipboard
+            // 
+            this.btnPasteFromClipboard.Location = new System.Drawing.Point(722, 305);
+            this.btnPasteFromClipboard.Name = "btnPasteFromClipboard";
+            this.btnPasteFromClipboard.Size = new System.Drawing.Size(89, 89);
+            this.btnPasteFromClipboard.TabIndex = 9;
+            this.btnPasteFromClipboard.Text = "Paste From Clipboard";
+            this.btnPasteFromClipboard.UseVisualStyleBackColor = true;
+            this.btnPasteFromClipboard.Click += new System.EventHandler(this.btnPasteFromClipboard_Click);
+            // 
+            // btnClearInputData
+            // 
+            this.btnClearInputData.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btnClearInputData.Location = new System.Drawing.Point(371, 490);
+            this.btnClearInputData.Name = "btnClearInputData";
+            this.btnClearInputData.Size = new System.Drawing.Size(260, 51);
+            this.btnClearInputData.TabIndex = 10;
+            this.btnClearInputData.Text = "Clear All Input Data";
+            this.btnClearInputData.UseVisualStyleBackColor = true;
+            this.btnClearInputData.Click += new System.EventHandler(this.btnClearInputData_Click);
+            // 
             // UploadUsingCurl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 583);
+            this.Controls.Add(this.btnClearInputData);
+            this.Controls.Add(this.btnPasteFromClipboard);
             this.Controls.Add(this.btnViewExecOutput);
-            this.Controls.Add(this.btnViewLastExecutionError);
             this.Controls.Add(this.BtnProcessData);
             this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.txtCreateMCJson);
@@ -151,7 +163,7 @@
             this.Controls.Add(this.txtSelectedFile);
             this.Name = "UploadUsingCurl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Upload File To AWS S3 Using Curl (From Powershell)";
+            this.Text = "Upload File To AWS S3 Using HttpClient";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,7 +179,8 @@
         private System.Windows.Forms.TextBox txtCreateMCJson;
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.Button BtnProcessData;
-        private System.Windows.Forms.Button btnViewLastExecutionError;
         private System.Windows.Forms.Button btnViewExecOutput;
+        private System.Windows.Forms.Button btnPasteFromClipboard;
+        private System.Windows.Forms.Button btnClearInputData;
     }
 }

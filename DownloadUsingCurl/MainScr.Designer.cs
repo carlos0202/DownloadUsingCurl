@@ -33,11 +33,11 @@
             // 
             // btnOpenUploadUsingCurlBtn
             // 
-            this.btnOpenUploadUsingCurlBtn.Location = new System.Drawing.Point(314, 143);
+            this.btnOpenUploadUsingCurlBtn.Location = new System.Drawing.Point(12, 12);
             this.btnOpenUploadUsingCurlBtn.Name = "btnOpenUploadUsingCurlBtn";
-            this.btnOpenUploadUsingCurlBtn.Size = new System.Drawing.Size(162, 37);
+            this.btnOpenUploadUsingCurlBtn.Size = new System.Drawing.Size(195, 37);
             this.btnOpenUploadUsingCurlBtn.TabIndex = 0;
-            this.btnOpenUploadUsingCurlBtn.Text = "Upload Using Curl";
+            this.btnOpenUploadUsingCurlBtn.Text = "Upload Using HttpClient";
             this.btnOpenUploadUsingCurlBtn.UseVisualStyleBackColor = true;
             this.btnOpenUploadUsingCurlBtn.Click += new System.EventHandler(this.btnOpenUploadUsingCurlBtn_Click);
             // 
@@ -45,7 +45,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 514);
+            this.ClientSize = new System.Drawing.Size(220, 146);
             this.Controls.Add(this.btnOpenUploadUsingCurlBtn);
             this.Name = "MainScr";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
