@@ -26,7 +26,15 @@ namespace DownloadUsingCurl.Pages
         {
             InitializeComponent();
 
-            this._client = new HttpClient();
+            var handler = new HttpClientHandler();
+            handler.ClientCertificateOptions = ClientCertificateOption.Manual;
+            handler.ServerCertificateCustomValidationCallback =
+                (httpRequestMessage, cert, cetChain, policyErrors) =>
+                {
+                    return true;
+                };
+
+            this._client = new HttpClient(handler);
         }
 
         private void BtnSelectUploadFile_Click(object sender, EventArgs e)
@@ -47,6 +55,7 @@ namespace DownloadUsingCurl.Pages
         {
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Put, this.PresignedURL);
             request.Content = new ByteArrayContent(File.ReadAllBytes(this.SelectedFilePath));
+
 
             HttpResponseMessage response = await this._client.SendAsync(request);
             //response.EnsureSuccessStatusCode();
